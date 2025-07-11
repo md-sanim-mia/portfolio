@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Sidever from "@/components/Share/Sidever";
+import Naver from "@/components/Share/Naver";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +29,53 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        {" "}
+        {/* <div className="flex gap-6 h-screen bg-gray-50 px-5 py-3">
+          <div className="hidden md:hidden lg:block lg:w-[341px] flex-shrink-0 min-w-0">
+            <Sidever />
+          </div>
+
+          <main className="flex-1 border border-gray-300 bg-white shadow-lg rounded-lg overflow-hidden flex flex-col min-w-0">
+            <div className="flex-1 overflow-y-auto box-border hide-scrollbar">
+              {children}
+            </div>
+          </main>
+
+          <div
+            className="px-9 pt-6
+                          lg:fixed lg:right-0 lg:top-0 lg:h-screen
+                          flex-shrink-0 "
+          >
+            <Naver />
+          </div>
+        </div> */}
+        {/* Main content area */}
+        <div className="flex gap-6 h-screen bg-gray-50 px-5 py-3">
+          <div className="hidden md:hidden lg:block lg:w-[341px] flex-shrink-0 min-w-0">
+            <Sidever />
+          </div>
+
+          <main className="flex-1 border border-gray-300 bg-white shadow-lg rounded-lg overflow-hidden flex flex-col min-w-0">
+            <div className="flex-1 overflow-y-auto box-border hide-scrollbar">
+              {children}
+            </div>
+          </main>
+        </div>
+        {/* Naver for smaller screens - positioned at the bottom */}
+        <div
+          className="fixed bottom-0 left-0 right-0 w-full p-4 bg-white border-t border-gray-200
+                     lg:hidden"
+        >
+          <Naver />
+        </div>
+        {/* Naver for larger screens - fixed on the right */}
+        <div
+          className="hidden
+                     lg:block lg:fixed lg:right-0 lg:top-0 lg:h-screen
+                     lg:px-9 lg:pt-6 lg:flex-shrink-0"
+        >
+          <Naver />
+        </div>
       </body>
     </html>
   );
