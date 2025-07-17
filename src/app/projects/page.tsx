@@ -138,135 +138,70 @@ export default function ProjectComponent() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex">
+    <div className="min-h-screen bg-gray-50 p-6">
       {/* Left Sidebar - Same as other pages */}
-      <div className="w-64 bg-white shadow-sm p-6 flex flex-col">
-        {/* Profile Section */}
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-full mx-auto mb-4 overflow-hidden">
-            <Image
-              src="/placeholder.svg?height=64&width=64"
-              alt="Vishal Yadav"
-              width={64}
-              height={64}
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <h2 className="text-lg font-semibold text-gray-900 mb-1">
-            Vishal Yadav
-          </h2>
-          <p className="text-sm text-gray-600 mb-2">Fullstack Developer</p>
-          <Badge
-            variant="secondary"
-            className="bg-green-100 text-green-700 text-xs px-2 py-1"
-          >
-            ★ Available
-          </Badge>
-        </div>
-
-        {/* Contact Info */}
-        <div className="space-y-4 mb-8">
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
-              <Mail className="w-4 h-4 text-yellow-600" />
-            </div>
-            <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">
-                EMAIL
-              </p>
-              <p className="text-sm text-gray-900">vishvy@gmail.com</p>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
-              <Phone className="w-4 h-4 text-yellow-600" />
-            </div>
-            <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">
-                PHONE
-              </p>
-              <p className="text-sm text-gray-900">8668279388</p>
-            </div>
-          </div>
-
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center">
-              <MapPin className="w-4 h-4 text-yellow-600" />
-            </div>
-            <div>
-              <p className="text-xs text-gray-500 uppercase tracking-wide font-medium">
-                LOCATION
-              </p>
-              <p className="text-sm text-gray-900">Nashik, India</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Skills Icons */}
-        <div className="mt-auto mb-6">
-          <div className="grid grid-cols-3 gap-4 mb-4">
-            <div className="text-center">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                <User className="w-5 h-5 text-gray-600" />
+      <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        Projects{" "}
+        <span className="text-sm font-normal text-gray-500">(9486 views)</span>
+      </h1>
+      {/* Main Content */}
+      <div className="flex-1 p-4">
+        {/* Projects Grid */}
+        <div className="grid grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300"
+            >
+              {/* Project Image */}
+              <div className="aspect-video rounded-t-xl overflow-hidden bg-gray-100">
+                <Image
+                  src={project.image || "/placeholder.svg"}
+                  alt={project.title}
+                  width={350}
+                  height={200}
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <p className="text-xs text-gray-600">Task</p>
-            </div>
-            <div className="text-center">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                <Calendar className="w-5 h-5 text-gray-600" />
-              </div>
-              <p className="text-xs text-gray-600">Planning</p>
-            </div>
-            <div className="text-center">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                <Palette className="w-5 h-5 text-gray-600" />
-              </div>
-              <p className="text-xs text-gray-600">Design</p>
-            </div>
-          </div>
 
-          <div className="grid grid-cols-3 gap-4">
-            <div className="text-center">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                <Rocket className="w-5 h-5 text-gray-600" />
-              </div>
-              <p className="text-xs text-gray-600">Deploy</p>
-            </div>
-            <div className="text-center">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                <TestTube className="w-5 h-5 text-gray-600" />
-              </div>
-              <p className="text-xs text-gray-600">Testing</p>
-            </div>
-            <div className="text-center">
-              <div className="w-10 h-10 bg-gray-100 rounded-lg flex items-center justify-center mb-2 mx-auto">
-                <Code className="w-5 h-5 text-gray-600" />
-              </div>
-              <p className="text-xs text-gray-600">Develop</p>
-            </div>
-          </div>
-        </div>
+              {/* Project Content */}
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  {project.title}
+                </h3>
 
-        {/* Social Icons */}
-        <div className="flex justify-center space-x-3 mb-6">
-          <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-            <Github className="w-4 h-4 text-gray-600" />
-          </div>
-          <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-            <Linkedin className="w-4 h-4 text-gray-600" />
-          </div>
-          <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-            <MessageSquare className="w-4 h-4 text-gray-600" />
-          </div>
-          <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-            <Moon className="w-4 h-4 text-gray-600" />
-          </div>
-        </div>
+                {/* Technology Badges */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {project.technologies.map((tech) => (
+                    <Badge
+                      key={tech}
+                      className={`text-xs px-2 py-1 ${getTechBadgeColor(tech)}`}
+                    >
+                      {tech}
+                    </Badge>
+                  ))}
+                </div>
 
-        {/* Time */}
-        <div className="text-center">
-          <p className="text-sm text-gray-600 font-medium">{"07/15/2025"}</p>
+                {/* Project Links */}
+                <div className="flex items-center justify-between">
+                  <a
+                    href={project.github}
+                    className="flex items-center space-x-1 text-blue-600 hover:text-blue-800 text-sm font-medium"
+                  >
+                    <Github className="w-4 h-4" />
+                    <span>GitHub</span>
+                  </a>
+                  <a
+                    href={project.live}
+                    className="flex items-center space-x-1 text-blue-600 hover:text-blue-800 text-sm font-medium"
+                  >
+                    <span>Live</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
