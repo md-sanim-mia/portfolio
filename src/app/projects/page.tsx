@@ -159,7 +159,7 @@ export default function ProjectComponent() {
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   width={350}
-                  height={200}
+                  height={201}
                   className="w-full h-full object-cover"
                 />
               </div>
